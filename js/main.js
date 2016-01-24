@@ -12,6 +12,7 @@ var canWidth;
 var canHeight;
 
 var ane;
+var fruit;
 
 document.body.onload = game;
 
@@ -34,11 +35,13 @@ function init(){
     bgPic = new Image();
     bgPic.src = "./src/background.jpg";
     canWidth = can1.width;
-    canHeight = can2.height;
+    canHeight = can2.height
 
-    ane
     ane = new aneObj();
     ane.init();
+
+    fruit = new fruitObj();
+    fruit.init();
 }
 
 function gameloop(){
@@ -50,5 +53,9 @@ function gameloop(){
     lastTime = now;
 
     drawBackground();
+
     ane.draw();
+
+    fruit.draw();
+    fruitMonitor();
 }
