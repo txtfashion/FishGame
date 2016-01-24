@@ -82,7 +82,6 @@ fruitObj.prototype.born =function(i){
     {
         this.fruitType[i] = "orange";
     }
-    console.log(this.fruitType[i]);
     this.spd[i] = Math.random() * 0.017 + 0.003; // [0.005,0.015)
 }
 
