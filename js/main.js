@@ -11,6 +11,8 @@ var bgPic;
 var canWidth;
 var canHeight;
 
+var ane;
+
 document.body.onload = game;
 
 function game(){
@@ -33,6 +35,10 @@ function init(){
     bgPic.src = "./src/background.jpg";
     canWidth = can1.width;
     canHeight = can2.height;
+
+    ane
+    ane = new aneObj();
+    ane.init();
 }
 
 function gameloop(){
@@ -44,4 +50,5 @@ function gameloop(){
     lastTime = now;
 
     drawBackground();
+    ane.draw();
 }
