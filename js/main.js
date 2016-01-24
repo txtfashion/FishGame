@@ -62,6 +62,7 @@ function gameloop(){
     //compute gameloop time
     var now = Date.now();
     deltaTime = now - lastTime;
+    if (deltaTime > 50) deltaTime = 50;
     lastTime = now;
 
     drawBackground();
@@ -73,6 +74,8 @@ function gameloop(){
 
     ctx1.clearRect(0,0,canWidth,canHeight);
     mom.draw();
+
+    momFruitsCollision();
 }
 
 function onMouseMove(e){
