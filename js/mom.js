@@ -2,7 +2,6 @@ var momObj = function(){
     this.x;
     this.y;
     this.angle;
-    this.bigBody = new Image();
 
     this.momTailTimer = 0;
     this.momTailCount = 0;
@@ -10,13 +9,14 @@ var momObj = function(){
     this.momEyeTimer = 0;
     this.momEyeCount = 0;
     this.momEyeIntervel = 1000;
+
+    this.momBodyCount = 0;
 }
 
 momObj.prototype.init = function(){
     this.x = canWidth * 0.5;
     this.y = canHeight * 0.5;
     this.angle = 0;
-    this.bigBody.src = "./src/bigSwim0.png";
 }
 
 momObj.prototype.draw = function(){
@@ -59,7 +59,16 @@ momObj.prototype.draw = function(){
     ctx1.save();
     ctx1.translate(this.x,this.y);
     ctx1.rotate(this.angle);
-    ctx1.drawImage(this.bigBody,-this.bigBody.width*0.5,-this.bigBody.height*0.5);
+    var momBodyCount = this.momBodyCount;
+    if (data.double == 1)//orange
+    {
+        ctx1.drawImage(momBodyOrange[momBodyCount],-momBodyOrange[momBodyCount].width*0.5,-momBodyOrange[momBodyCount].height*0.5);
+    }
+    else
+    {
+        ctx1.drawImage(momBodyBlue[momBodyCount],-momBodyBlue[momBodyCount].width*0.5,-momBodyBlue[momBodyCount].height*0.5);
+    }
+
     var momEyeCount = this.momEyeCount;
     ctx1.drawImage(momEye[momEyeCount],-momEye[momEyeCount].width*0.5,-momEye[momEyeCount].height*0.5);
     var momTailCount = this.momTailCount;

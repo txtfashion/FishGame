@@ -25,7 +25,10 @@ var babyBody = [];
 
 var momTail = [];
 var momEye = [];
-//var momBody = [];
+var momBodyOrange = [];
+var momBodyBlue = [];
+
+var data;
 
 document.body.onload = game;
 
@@ -96,6 +99,20 @@ function init(){
         momEye[i] = new Image();
         momEye[i].src = "./src/bigEye" + i + ".png";
     }
+
+    for (var i = 0; i < 8; i++)
+    {
+        momBodyOrange[i] = new Image();
+        momBodyBlue[i] = new Image();
+        momBodyOrange[i].src = "./src/bigSwim" + i + ".png";
+        momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+    }
+
+
+
+    data = new dataObj();
+    ctx1.font = "30px Verdana";
+    ctx1.textAlign = "center";
 }
 
 function gameloop(){
@@ -121,11 +138,15 @@ function gameloop(){
 
     momFruitsCollision();
     momBabyCollision();
+
+    data.draw();
 }
 
 function onMouseMove(e){
-    if (e.offSetX || e.layerX){
-        mx = e.offSetX == undefined ? e.layerX : e.offSetX;
-        my = e.offSetY == undefined ? e.layerY : e.offSetY;
+    if (!data.gameOver) {
+        if (e.offSetX || e.layerX) {
+            mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+            my = e.offSetY == undefined ? e.layerY : e.offSetY;
+        }
     }
 }
