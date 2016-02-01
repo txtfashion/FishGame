@@ -15,7 +15,7 @@ dataObj.prototype.draw = function () {
     var h = can1.height;
 
     ctx1.save();
-    
+
     ctx1.shadowBlur = 10;
     ctx1.shadowColor = "white";
     ctx1.fillStyle = "white";
