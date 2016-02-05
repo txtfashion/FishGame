@@ -6,6 +6,7 @@ function momFruitsCollision(){
                 //colculate length
                 var l = calLength2(fruit.x[i], fruit.y[i], mom.x, mom.y);
                 if (l < 900) {
+                    wave.born(fruit.x[i],fruit.y[i]);
                     fruit.dead(i);
                     data.fruitNum++;
                     mom.momBodyCount++;
@@ -21,7 +22,6 @@ function momFruitsCollision(){
                         data.double = 1;
                     }
 
-                    wave.born(fruit.x[i],fruit.y[i]);
                 }
             }
         }
