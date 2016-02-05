@@ -32,6 +32,9 @@ var data;
 var wave;
 var halo;
 
+var dust;
+var dustPic = [];
+
 document.body.onload = game;
 
 function game(){
@@ -121,6 +124,14 @@ function init(){
 
     halo = new haloObj();
     halo.init();
+
+    dust = new dustObj();
+    dust.init();
+    for (var i = 0 ; i < 7; i ++)
+    {
+        dustPic[i] = new Image();
+        dustPic[i].src = "./src/dust" + i + ".png";
+    }
 }
 
 function gameloop(){
@@ -152,6 +163,8 @@ function gameloop(){
     wave.draw();
 
     halo.draw();
+
+    dust.draw();
 }
 
 function onMouseMove(e){
